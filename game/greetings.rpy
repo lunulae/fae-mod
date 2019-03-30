@@ -148,29 +148,29 @@ label s_greeting_3: #Greeting in a random mod langauge expecting the current
             renpy.jump('s_greeting_3_eng') #English has a bit different dialogs
         
     $ greeting_lang = greeting_lang.name
-    s 6aebb "I'm sorry, if you haven't understand me."
-    s 6aaaa "I just revise my [greeting_lang]."
-    s "Freakly speaking, I don't understand how I know this language."
-    s 6acaa "Feels like someone just loaded it into my mind once."
-    s 6aaaa "Anyway, I think it's not so important."
-    s 6aaca "More languages you know, more friends you can make, right?"
+    s 6aebb "I'm sorry if you didn't understand me."
+    s 6aaaa "I've been practicing my [greeting_lang]."
+    s "Frankly speaking, I don't understand how I know this language."
+    s 6acaa "It feels like someone just loaded it into my mind once."
+    s 6aaaa "Anyway, I guess it's not important."
+    s 6aaca "The more languages you know, the more friends you can make, after all!"
     s 7aaaa "And if you know this language better than English, you can select it in the game setting menu." #English = Current language
-    s "Anyway, let's do something besides language conversations."
+    s "Anyway, let's talk about something besides languages."
     return
 
 label s_greeting_3_eng:
     s "Hello, darling!{#Don't translate this string from English!}"
     s 6aeca "I'm glad to see you're back.{#And this one too}"
     pause 0.5
-    s 6aebb "I'm sorry, if you haven't understand me."
-    s 6aaaa "I just revise my English."
+    s 6aebb "I'm sorry if you didn't understand me."
+    s 6aaaa "I just revised my English."
     s "It's my native language."
-    s "Freakly speaking, I don't understand how I know your language."
-    s 6acaa "Feels like someone just loaded it into my mind once."
-    s 6aaaa "Anyway, I think it's not so important."
-    s 6aaca "More languages you know, more friends you can make, right?"
+    s "Frankly speaking, I don't understand how I know your language."
+    s 6acaa "It feels like someone just loaded it into my mind once."
+    s 6aaaa "Anyway, I guess it's not important."
+    s 6aaca "The more languages you know, the more friends you can make, after all!"
     s 7aaaa "And if you know English better than your language, you can select it in the game setting menu." #your language = Current language
-    s "Anyway, let's do something besides language conversations."
+    s "Anyway, let's talk about something besides languages."
     return
 
 label s_greeting_3_rus:
@@ -187,17 +187,17 @@ label s_greeting_4:
     show sayori 7aaaa at ss1 zorder 2
     s "Uh, hi again!"
     s 7acaa "I hope nothing bad happened with you while I was sleeping."
-    s "I want you to be have all right, you know."
-    s "At least, if you don't have it, you'll tell me, won't you?"
+    s "I want you to be alright, you know."
+    s "At least, if you're not... you'll tell me, won't you?"
     return
 
 label s_greeting_5:
     show sayori 7aeca at ss1 zorder 2
     s "You're back, ehehe~"
-    s 7acaa "It's pretty boring, when you're not here."
+    s 7acaa "It's pretty boring when you're not here."
     s "You're my only friend here now, you know..."
-    s "And you also know how to cheer me up."
-    s "Maybe, you'll do it now?"
+    s "And you also know just how to cheer me up."
+    s "Maybe you'll do it now?"
     return
 
 label s_greeting_6:
@@ -226,10 +226,10 @@ label s_greeting_first(time_of_day):
             else:
                 s 6acaa "Rise and shine, Mr. [player]."
             s "Rise and shine."
-            s 6abaa "Am I sounding too formally?"
+            s 6abaa "Am I speaking too formally?"
             s 6aaca "It's a bit funny how 'rise and shine' contrasts with a formal title, isn't it?"
-            s "Like it's a bit weird sir's greeting."
-            s 6aaaa "Anyway, let's start our joint pastime."
+            s "Like it's a regal sir's greeting."
+            s 6aaaa "Anyway, let's start our joint pasttime. Ehehe~"
             
     elif time_of_day == 2:
         if not bday:
@@ -248,28 +248,28 @@ label s_greeting_first(time_of_day):
         s 6aeca "It's your birthday!"
         s 6aeaa "Happy birthday, [player]!"
         #if not has_present:
-        #    s 8aebb "I'm sorry I have no present to you."
+        #    s 8aebb "I'm sorry I have no present to give you this year."
         #    s "I hope it doesn't upset you."
         #    s 6aaaa "Anyway..."
         s 6aaaa "I'm glad you're older by a year."
         if age == 18:
-            s "It means we finally are the same age now."
-        s "Don't forget to make a birthday party."
+            s "It means we finally are the same age now!"
+        s "Don't forget to have a birthday party!"
         s 6abaa "...If you don't dislike them, of course."
-        s 7aaaa "However, if you have come here, let's spend some time together."
+        s 7aaaa "However, if you already have come here, let's spend some time together."
     elif time_of_day != 2 and (time_of_day != 1 or ee_chance > 0.1):
         $ chance = renpy.random.random()
         if chance < (1.0/3.0):
             s "I'm glad you're visiting me today."
             s "Let's spend this day together!"
         elif chance < (2.0/3.0):
-            s "I'm glad, you're back."
+            s "I'm glad you're back."
             s "I'll do my best to make this day really pleasant."
         else:
-            s 7aaaa "You're here, so I hope you have something good to share today."
-            s 7acaa "Even if you don't, it won't be bad."
+            s 7aaaa "I hope you have some good stories to share today."
+            s 7acaa "Even if you don't, it's okay."
             s "Your life doesn't have to consist of good stripes only."
-            s 7aeca "But I can do it a bit better anyway."
+            s 7aeca "I hope I can make you happier anyway!"
     
     #if has_present:
     #    s 7aaaa "By the way..."
@@ -281,41 +281,41 @@ label s_val_present(first = False):
     $has_present = poems["val"].available is False and get_now().date() >= val_date
     
     if get_now().date() == val_date:
-        s "Today is the Saint Valentine day!"
-        s 7aaca "So I had a special present for you..."
+        s "Today is Saint Valentine's day!"
+        s 7aaca "So I have a special present for you..."
         call showpoem(poem_val, "paper_val", 200, 0.5, 360)
     elif get_now().date() > val_date:
         if first:
-            s 8bebb "I forgot to give you a present for the Saint Valentine day to you..."
-            s "So I gonna give it you right now. Just wait a second."
+            s 8bebb "I forgot to give you a present for Saint Valentine's day..."
+            s "So I'm gonna give it to you right now! Just wait a second."
         else:
-            s 7aaca "You missed the Saint Valentine day!"
+            s 7aaca "You missed Saint Valentine's day!"
         s 7aeca "So I left a special present for you..."
         call showpoem(poem_val, "paper_val", 200, 0.5, 360)
     
     $poems["val"].available = 0
     $poems["val"].seen = True
     s 7aaaa "It's a Valentine heart-shaped card with a short poem on it..."
-    s "It's the best I could make to congratulate you."
-    s 7acaa "Don't worry! You don't have to think of a back present..."
-    s 7aaab "To be with you is the best present you can give me now."
+    s "It's the best I could make to celebrate with you."
+    s 7acaa "Don't worry! You don't have to think of a return present..."
+    s 7aaab "Being with you is the best present you can give me now."
     return
 
 label s_greeting_7:
     show sayori 7aeca at ss1
-    s "Guess, who's back!"
+    s "Guess who's back!"
     s 7aeaa "It's [player], of course!"
     if gender is True:
-        s "And I guess, she's ready to spend her day with her sunshine."
+        s "I hope she's ready to spend her day with her sunshine."
     elif gender is False:
-        s "And I guess, he's ready to spend his day with his sunshine."
+        s "I hope he's ready to spend his day with his sunshine."
     else:
-        s "And I guess, they're ready to spend their day with their sunshine."
+        s "I hope they're ready to spend their day with their sunshine."
     return 'vh'
 
 label s_greeting_8:
     show sayori 7aaaa at ss1
     s "Hi [player]!"
-    s 7aaca "I see, you're here for a doze of joy and sunshine."
-    s 7aeca "So get it right now!"
+    s 7aaca "I see, you're here for a dose of joy and sunshine."
+    s 7aeca "So come get it right now!"
     return
